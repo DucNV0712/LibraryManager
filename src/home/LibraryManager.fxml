@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="150.0" prefWidth="1000.0" style="-fx-background-color: #000a3d;">
+         <children>
+            <Text fill="WHITE" layoutX="337.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản Lý Thư Viện">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TabPane layoutY="150.0" prefHeight="546.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Quản Lý Sách">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="1000.0">
+                     <children>
+                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                          <columns>
+                            <TableColumn prefWidth="136.0" text="Mã Sách" />
+                            <TableColumn prefWidth="310.0" text="Tên Sách" />
+                              <TableColumn minWidth="19.0" prefWidth="176.0" text="Tác Giả" />
+                              <TableColumn minWidth="0.0" prefWidth="207.0" text="Thể Loại" />
+                              <TableColumn minWidth="2.0" prefWidth="170.0" text="Số Lượng" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="761.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
+                        <Button layoutX="877.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Quản Lý Mượn Sách">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                          <columns>
+                            <TableColumn prefWidth="100.0" text="Mã KH" />
+                            <TableColumn prefWidth="250.0" text="Tên KH" />
+                              <TableColumn prefWidth="100.0" text="Mã Sách" />
+                              <TableColumn prefWidth="250.0" text="Tên Sách" />
+                              <TableColumn prefWidth="100.0" text="Phí Mượn" />
+                              <TableColumn text="Số Lượng" />
+                              <TableColumn prefWidth="119.0" text="Ngày Mượn" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="editCus" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Sửa" textFill="WHITE" />
+                        <Button fx:id="deleteCus" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Quản Lý Trả Sách">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                           <columns>
+                              <TableColumn text="Mã KH" />
+                              <TableColumn prefWidth="220.0" text="Tên KH" />
+                              <TableColumn text="Mã Sách" />
+                              <TableColumn prefWidth="220.0" text="Tên Sách" />
+                              <TableColumn prefWidth="100.0" text="Tiền Đã Trả" />
+                              <TableColumn prefWidth="100.0" text="Còn Nợ" />
+                              <TableColumn text="Số Lượng" />
+                              <TableColumn prefWidth="119.0" text="Ngày Trả" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="editCus1" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Sửa" textFill="WHITE" />
+                        <Button fx:id="deleteCus1" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus1" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Thống Kê">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;">
+                     <children>
+                        <Text fill="WHITE" layoutX="144.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng  Sách Có Trong Thư Viện : " wrappingWidth="411.6708984375">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="118.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Mượn Sách :" wrappingWidth="437.6708984375">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="148.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Trả Sách :" wrappingWidth="407.6708984375">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="569.0" layoutY="44.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                        <Button layoutX="628.0" layoutY="254.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Lảm Mới" textFill="WHITE" />
+                        <TextField layoutX="569.0" layoutY="189.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                        <TextField layoutX="569.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
