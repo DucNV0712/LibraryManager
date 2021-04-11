@@ -1,3 +1,5 @@
+package filechay;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,11 +12,13 @@ public class Main extends Application {
 
 
     public static Stage mainStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         mainStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("./home/LibraryManager.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
         primaryStage.setTitle("Library Manager");
+
         Image image = new Image("./lib/img/Apps-Library-icon.png");
         primaryStage.getIcons().add(image);
         primaryStage.setScene(new Scene(root, 1000, 700));

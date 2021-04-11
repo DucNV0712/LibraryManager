@@ -1,0 +1,25 @@
+ .btEditCus:hover,.btDeleteCus:hover,
+ .btAddCus:hover,.btAddCusBook:hover,
+ .btDeleteCusBook:hover,.btEditCusBook:hover,.btAddBook:hover,
+ .btDeleteBook:hover,.btRestart:hover{
+     -fx-cursor: HAND;
+     -fx-border-color:#fff;
+     -fx-background-color:white;
+     -fx-text-fill: black;
+
+ }
+ .btEditCus:pressed,.btDeleteCus:pressed,
+ .btAddCus:pressed,.btAddCusBook:pressed,
+ .btDeleteCusBook:pressed,.btEditCusBook:pressed,.btAddBook:pressed,
+ .btDeleteBook:pressed,.btRestart:pressed{
+     -fx-pref-width:99px;
+     -fx-pref-height:39px;
+
+
+ }
+ .btEditCus,.btDeleteCus,
+ .btAddCus,.btAddCusBook,
+ .btDeleteCusBook,.btEditCusBook,.btAddBook,
+ .btDeleteBook,.btRestart{
+     -fx-background-color:  #000a3d;
+ }

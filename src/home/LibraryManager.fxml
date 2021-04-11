@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;" stylesheets="@../lib/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
    <children>
       <Pane prefHeight="150.0" prefWidth="1000.0" style="-fx-background-color: #000a3d;">
          <children>
@@ -18,21 +20,24 @@
       </Pane>
       <TabPane layoutY="150.0" prefHeight="546.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Quản Lý Sách">
+          <Tab  text="Quản Lý Sách">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="1000.0">
                      <children>
-                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                        <TableView fx:id="tbViewBook"  prefHeight="430.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="136.0" text="Mã Sách" />
-                            <TableColumn prefWidth="310.0" text="Tên Sách" />
-                              <TableColumn minWidth="19.0" prefWidth="176.0" text="Tác Giả" />
-                              <TableColumn minWidth="0.0" prefWidth="207.0" text="Thể Loại" />
-                              <TableColumn minWidth="2.0" prefWidth="170.0" text="Số Lượng" />
+                            <TableColumn fx:id="tbIDb" prefWidth="136.0" text="Mã Sách" />
+                            <TableColumn fx:id="tbNameb" prefWidth="310.0" text="Tên Sách" />
+                              <TableColumn fx:id="tbAuthorb" minWidth="19.0" prefWidth="176.0" text="Tác Giả" />
+                              <TableColumn fx:id="tbCategory" minWidth="0.0" prefWidth="207.0" text="Thể Loại" />
+                              <TableColumn fx:id="tbNumberb" minWidth="2.0" prefWidth="170.0" text="Số Lượng" />
                           </columns>
                         </TableView>
-                        <Button layoutX="761.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
-                        <Button layoutX="877.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
+                        <Button layoutX="761.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" onAction="#btAddBook" styleClass="btAddBook" text="Thêm" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button layoutX="877.0" layoutY="455.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" onAction="#btDeleteBook" styleClass="btDeleteBook" text="Xóa" textFill="WHITE" />
                      </children>
                   </AnchorPane>
             </content>
@@ -52,9 +57,12 @@
                               <TableColumn prefWidth="119.0" text="Ngày Mượn" />
                           </columns>
                         </TableView>
-                        <Button fx:id="editCus" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Sửa" textFill="WHITE" />
-                        <Button fx:id="deleteCus" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
+                        <Button fx:id="editCus" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="CROSSHAIR" />
+                           </cursor></Button>
+                        <Button fx:id="deleteCus" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
                      </children>
                   </AnchorPane>
             </content>
@@ -75,9 +83,9 @@
                               <TableColumn prefWidth="119.0" text="Ngày Trả" />
                            </columns>
                         </TableView>
-                        <Button fx:id="editCus1" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Sửa" textFill="WHITE" />
-                        <Button fx:id="deleteCus1" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus1" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Thêm" textFill="WHITE" />
+                        <Button fx:id="editCus1" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCus" text="Sửa" textFill="WHITE" />
+                        <Button fx:id="deleteCus1" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCus" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus1" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCus" text="Thêm" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </content>
@@ -102,7 +110,7 @@
                            </font>
                         </Text>
                         <TextField layoutX="569.0" layoutY="44.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
-                        <Button layoutX="628.0" layoutY="254.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000a3d;" text="Lảm Mới" textFill="WHITE" />
+                        <Button layoutX="628.0" layoutY="254.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btRestart" text="Làm Mới" textFill="WHITE" />
                         <TextField layoutX="569.0" layoutY="189.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
                         <TextField layoutX="569.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
                      </children>
@@ -112,4 +120,5 @@
         </tabs>
       </TabPane>
    </children>
+
 </Pane>
