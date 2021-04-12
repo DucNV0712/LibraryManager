@@ -23,7 +23,7 @@ public class Main extends Application {
         Image image = new Image("./lib/img/Apps-Library-icon.png");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image);
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        primaryStage.setScene(new Scene(root, 1263, 944));
         primaryStage.show();
     }
 

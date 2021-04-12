@@ -5,12 +5,24 @@ public class qlSach {
     public String nameB;
     public String author;
     public String category;
+    public Integer amountB;
+
+
 
     public qlSach(String idB, String nameB, String author, String category) {
         this.idB = idB;
         this.nameB = nameB;
         this.author = author;
         this.category = category;
+        this.amountB = amountB;
+    }
+
+    public Integer getAmount() {
+        return amountB;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amountB = amount;
     }
 
     public String getIdB() {

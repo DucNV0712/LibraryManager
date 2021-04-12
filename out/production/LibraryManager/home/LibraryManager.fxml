@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
@@ -7,90 +8,122 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;" stylesheets="@../lib/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1262.0" style="-fx-background-color: d91e1e;" stylesheets="@../lib/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
    <children>
-      <Pane prefHeight="150.0" prefWidth="1000.0" style="-fx-background-color: #000a3d;">
+      <Pane prefHeight="173.0" prefWidth="1262.0" style="-fx-background-color: #000a3d;">
          <children>
-            <Text fill="WHITE" layoutX="337.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản Lý Thư Viện">
+            <Text fill="WHITE" layoutX="469.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản Lý Thư Viện">
                <font>
                   <Font name="System Bold" size="39.0" />
                </font>
             </Text>
-            <ImageView fx:id="close" fitHeight="27.0" fitWidth="19.0" layoutX="967.0" layoutY="14.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="close" fitHeight="19.0" fitWidth="19.0" layoutX="1230.0" layoutY="14.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../lib/img/close.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <TabPane layoutY="150.0" prefHeight="546.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="172.0" prefHeight="778.0" prefWidth="1263.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Quản Lý Sách">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="1000.0">
+               <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="1373.0">
                      <children>
-                        <TableView fx:id="tbViewBook" prefHeight="430.0" prefWidth="1000.0">
+                        <TableView fx:id="tbViewBook" layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
                           <columns>
-                            <TableColumn fx:id="tbIDb" prefWidth="136.0" text="Mã Sách" />
-                            <TableColumn fx:id="tbNameb" prefWidth="310.0" text="Tên Sách" />
-                              <TableColumn fx:id="tbAuthorb" minWidth="19.0" prefWidth="176.0" text="Tác Giả" />
-                              <TableColumn fx:id="tbCategory" minWidth="0.0" prefWidth="207.0" text="Thể Loại" />
-                              <TableColumn fx:id="tbNumberb" minWidth="2.0" prefWidth="170.0" text="Số Lượng" />
+                            <TableColumn fx:id="tbIDb" prefWidth="120.0" text="Mã Sách" />
+                            <TableColumn fx:id="tbNameb" prefWidth="280.0" text="Tên Sách" />
+                              <TableColumn fx:id="tbAuthorb" minWidth="19.0" prefWidth="200.0" text="Tác Giả" />
+                              <TableColumn fx:id="tbCategory" minWidth="0.0" prefWidth="170.0" text="Thể Loại" />
+                              <TableColumn fx:id="tbNumberb" minWidth="2.0" prefWidth="100.0" text="Số Lượng" />
                           </columns>
                         </TableView>
-                        <Button layoutX="761.0" layoutY="455.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
+                        <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button layoutX="877.0" layoutY="455.0" mnemonicParsing="false" onAction="#btDeleteBook" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteBook" text="Xóa" textFill="WHITE" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#btDeleteBook" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteBook" text="Xóa" textFill="WHITE" />
+                        <TextField layoutX="28.0" layoutY="136.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField layoutX="28.0" layoutY="218.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
+                        <TextField layoutX="28.0" layoutY="300.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tác Giả" />
+                        <TextField layoutX="28.0" layoutY="382.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Thể Loại" />
+                        <TextField layoutX="28.0" layoutY="464.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <Text fill="WHITE" layoutX="57.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thêm Sách Vào Thư Viện">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
-            </content>
+               </content>
           </Tab>
           <Tab text="Quản Lý Mượn Sách">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="1263.0">
                      <children>
-                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                        <TableView layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
                           <columns>
                             <TableColumn prefWidth="100.0" text="Mã KH" />
-                            <TableColumn prefWidth="250.0" text="Tên KH" />
+                            <TableColumn prefWidth="230.0" text="Tên KH" />
                               <TableColumn prefWidth="100.0" text="Mã Sách" />
-                              <TableColumn prefWidth="250.0" text="Tên Sách" />
-                              <TableColumn prefWidth="100.0" text="Phí Mượn" />
-                              <TableColumn text="Số Lượng" />
+                              <TableColumn prefWidth="220.0" text="Tên Sách" />
+                              <TableColumn prefWidth="100.0" text="Số Lượng" />
                               <TableColumn prefWidth="119.0" text="Ngày Mượn" />
                           </columns>
                         </TableView>
-                        <Button fx:id="editCus" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                        <Button fx:id="editCus" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="CROSSHAIR" />
                            </cursor></Button>
-                        <Button fx:id="deleteCus" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <Button fx:id="deleteCus" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
+                        <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
+                        <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
+                        <TextField layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <Text fill="WHITE" layoutX="62.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Mượn Sách">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="Quản Lý Trả Sách">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="1263.0">
                      <children>
-                        <TableView prefHeight="430.0" prefWidth="1000.0">
+                        <TableView layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
                            <columns>
-                              <TableColumn text="Mã KH" />
-                              <TableColumn prefWidth="220.0" text="Tên KH" />
-                              <TableColumn text="Mã Sách" />
+                              <TableColumn prefWidth="100.0" text="Mã KH" />
+                              <TableColumn prefWidth="230.0" text="Tên KH" />
+                              <TableColumn prefWidth="100.0" text="Mã Sách" />
                               <TableColumn prefWidth="220.0" text="Tên Sách" />
-                              <TableColumn prefWidth="100.0" text="Tiền Đã Trả" />
-                              <TableColumn prefWidth="100.0" text="Còn Nợ" />
-                              <TableColumn text="Số Lượng" />
+                              <TableColumn prefWidth="100.0" text="Số Lượng" />
                               <TableColumn prefWidth="119.0" text="Ngày Trả" />
                            </columns>
                         </TableView>
-                        <Button fx:id="editCus1" layoutX="869.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCus" text="Sửa" textFill="WHITE" />
-                        <Button fx:id="deleteCus1" layoutX="752.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCus" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus1" layoutX="635.0" layoutY="453.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCus" text="Thêm" textFill="WHITE" />
+                        <Button fx:id="editCus1" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="CROSSHAIR" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="deleteCus1" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button fx:id="addCus1" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
+                        <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
+                        <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
+                        <TextField layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <Text fill="WHITE" layoutX="78.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Trả Sách">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                </content>
@@ -99,25 +132,25 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="1000.0" style="-fx-background-color: d91e1e;">
                      <children>
-                        <Text fill="WHITE" layoutX="144.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng  Sách Có Trong Thư Viện : " wrappingWidth="411.6708984375">
+                        <Text fill="WHITE" layoutX="220.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng  Sách Có Trong Thư Viện : " wrappingWidth="411.6708984375">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="118.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Mượn Sách :" wrappingWidth="437.6708984375">
+                        <Text fill="WHITE" layoutX="184.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Mượn Sách :" wrappingWidth="437.6708984375">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="148.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Trả Sách :" wrappingWidth="407.6708984375">
+                        <Text fill="WHITE" layoutX="214.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số Lượng Khách Hàng Đã Trả Sách :" wrappingWidth="407.6708984375">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="569.0" layoutY="44.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
-                        <Button layoutX="628.0" layoutY="254.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btRestart" text="Làm Mới" textFill="WHITE" />
-                        <TextField layoutX="569.0" layoutY="189.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
-                        <TextField layoutX="569.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                        <TextField fx:id="tkS" layoutX="672.0" layoutY="43.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                        <Button layoutX="622.0" layoutY="350.0" mnemonicParsing="false" onAction="#restart" prefHeight="40.0" prefWidth="100.0" styleClass="btRestart" text="Làm Mới" textFill="WHITE" />
+                        <TextField fx:id="tkTS" layoutX="672.0" layoutY="189.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
+                        <TextField fx:id="tkMS" layoutX="672.0" layoutY="116.0" prefHeight="39.0" prefWidth="218.0" promptText="00" />
                      </children>
                   </AnchorPane>
               </content>
