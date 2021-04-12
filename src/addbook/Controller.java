@@ -1,6 +1,6 @@
 package addbook;
 
-import filechay.Main;
+import Main.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
