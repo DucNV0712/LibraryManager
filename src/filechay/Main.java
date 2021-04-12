@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class Main extends Application {
@@ -20,6 +21,7 @@ public class Main extends Application {
         primaryStage.setTitle("Library Manager");
 
         Image image = new Image("./lib/img/Apps-Library-icon.png");
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image);
         primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.show();

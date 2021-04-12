@@ -16,6 +16,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
     }
     public void back() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
