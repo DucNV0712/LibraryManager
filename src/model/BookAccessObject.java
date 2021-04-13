@@ -13,6 +13,8 @@ public class BookAccessObject implements DataAccessObject<qlSach>{
         try {
             Connecter cn =Connecter.getInstance();
 
+        }catch (Exception E){
+
         }
 
         return null;
