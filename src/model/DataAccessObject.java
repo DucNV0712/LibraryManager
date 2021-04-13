@@ -3,13 +3,13 @@ package model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface DataAccessObject <AL> {
-    ArrayList<AL> getList();
+public interface DataAccessObject <S> {
+    ArrayList<S> getList();
 
-    boolean create(AL ds) throws SQLException;
+    boolean create(S ds) throws SQLException;
 
-    boolean update(AL ds);
+    boolean update(S ds);
 
-    boolean delete(AL ds);
+    boolean delete(S ds);
 }
 

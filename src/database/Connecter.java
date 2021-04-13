@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connecter {
-    public final static String connectString = "jdbc:mysql://localhost:3306/t2009m";
+    public final static String connectString = "jdbc:mysql://localhost:3306/librarymanager";
     public final static String username = "root";
     public final static String password = "";
     public Statement statement;

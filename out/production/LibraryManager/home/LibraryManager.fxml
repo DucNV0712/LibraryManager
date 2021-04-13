@@ -39,7 +39,7 @@
                               <TableColumn fx:id="tbNumberb" minWidth="2.0" prefWidth="100.0" text="Số Lượng" />
                           </columns>
                         </TableView>
-                        <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
+                        <Button fx:id="btAddBook" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -73,12 +73,12 @@
                               <TableColumn prefWidth="119.0" text="Ngày Mượn" />
                           </columns>
                         </TableView>
-                        <Button fx:id="editCus" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                        <Button fx:id="editCus" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="CROSSHAIR" />
                            </cursor></Button>
-                        <Button fx:id="deleteCus" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" fx:id="xoaKhachMuon" />
+                        <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
                         <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
                         <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
                         <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
@@ -107,13 +107,13 @@
                               <TableColumn prefWidth="119.0" text="Ngày Trả" />
                            </columns>
                         </TableView>
-                        <Button fx:id="editCus1" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                        <Button layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="CROSSHAIR" />
                            </cursor>
                         </Button>
-                        <Button fx:id="deleteCus1" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
-                        <Button fx:id="addCus1" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <Button fx:id="deleteCus1" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#xoaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
                         <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
                         <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
                         <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
