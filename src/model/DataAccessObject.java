@@ -1,15 +1,18 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 
 public interface DataAccessObject <S> {
-    ArrayList<S> getList();
+    ObservableList<S>getList();
 
-    boolean create(S ds) throws SQLException;
+    boolean create(S s) throws SQLException;
 
-    boolean update(S ds);
+    boolean update(S s);
 
-    boolean delete(S ds);
+    boolean delete(S s);
+
 }
 

@@ -1,37 +1,53 @@
 package model;
 
 import database.Connecter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.entity.qlSach;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class BookAccessObject implements DataAccessObject<qlSach>{
+public class BookAccessObject implements DataAccessObject {
+
+
     @Override
-    public ArrayList<qlSach> getList() {
-        ArrayList<qlSach> list =new ArrayList<>();
+    public ObservableList getList() {
+        ObservableList<qlSach> ds = FXCollections.observableArrayList();
         try {
-            Connecter cn =Connecter.getInstance();
+            Connecter cn = Connecter.getInstance();
+            String sql = "select * from bookmanager";
+            ResultSet rs = cn.getStatement().executeQuery(sql);
 
-        }catch (Exception E){
-
+            while (rs.next()) {
+                String idB = rs.getString("idB");
+                String nameB = rs.getString("nameB");
+                String author = rs.getString("authorB");
+                String category = rs.getString("category");
+                Integer amount = rs.getInt("amountB");
+                qlSach qls = new qlSach(idB, nameB, author, category, amount);
+                ds.add(qls);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("ERROR");
         }
-
-        return null;
+        return ds;
     }
 
+
     @Override
-    public boolean create(qlSach ds) throws SQLException {
+    public boolean create(Object o) throws SQLException {
         return false;
     }
 
     @Override
-    public boolean update(qlSach ds) {
+    public boolean update(Object o) {
         return false;
     }
 
     @Override
-    public boolean delete(qlSach ds) {
+    public boolean delete(Object o) {
         return false;
     }
 }

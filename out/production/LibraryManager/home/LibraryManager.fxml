@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1262.0" style="-fx-background-color: d91e1e;" stylesheets="@../lib/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
    <children>
-      <Pane prefHeight="173.0" prefWidth="1262.0" style="-fx-background-color: #000a3d;">
+      <Pane prefHeight="173.0" prefWidth="1263.0" style="-fx-background-color: #000a3d;">
          <children>
             <Text fill="WHITE" layoutX="469.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản Lý Thư Viện">
                <font>

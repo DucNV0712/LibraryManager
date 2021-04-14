@@ -1,15 +1,17 @@
 package home;
-import database.Connecter;
-import javafx.collections.FXCollections;
+
+
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.BookAccessObject;
 import model.entity.qlSach;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -30,28 +32,9 @@ public class Controller implements Initializable {
         tbAuthorb.setCellValueFactory(new PropertyValueFactory<>("author"));
         tbCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         tbNumberb.setCellValueFactory(new PropertyValueFactory<>("amountB"));
-        try {
-            Connecter cn = Connecter.getInstance();
-            String sql ="select * from bookmanager";
-            ResultSet rs = cn.getStatement().executeQuery(sql);
-
-            ObservableList<qlSach> listBook = FXCollections.observableArrayList();
-            while (rs.next()){
-                String idB = rs.getString("idB");
-                String nameB = rs.getString("nameB");
-                String author = rs.getString("authorB");
-                String category  = rs.getString("category");
-                Integer amount = rs.getInt("amountB");
-                qlSach qls = new qlSach(idB,nameB,author,category,amount);
-                listBook.add(qls);
-            }
-            tbViewBook.setItems(listBook);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            System.out.println("Lỗi");
-        }
-
-
+        BookAccessObject DAO = new BookAccessObject();
+        ObservableList<qlSach> ds = DAO.getList();
+        tbViewBook.setItems(ds);
     }
 
 
