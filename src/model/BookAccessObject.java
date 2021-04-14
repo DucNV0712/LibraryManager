@@ -37,7 +37,9 @@ public class BookAccessObject implements DataAccessObject {
 
 
     @Override
-    public boolean create(Object o) throws SQLException {
+    public boolean create(Object o) {
+
+
         return false;
     }
 

@@ -42,6 +42,8 @@ public class Controller implements Initializable {
 
     //Quân
     // Quản Lý Sách
+    public TextField txtMa_S;
+
     public void btDeleteBook(){
         //xóa sách viết vô đây
 
@@ -54,6 +56,7 @@ public class Controller implements Initializable {
 
     //Quản Lý Khách Hàng Mượn Sách
     //khai tao các ô nghập ở đây
+    public TextField txtTenNM;
 
     public void themKhachMuon(){
 
@@ -73,7 +76,8 @@ public class Controller implements Initializable {
     //Quản Lý Khách Hàng Trả Sách
 
     //khai tao các ô nghập ở đây
-        public TextField
+
+
 
     public void themKhachTra(){
 
