@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.BookAccessObject;
 import model.entity.qlSach;
@@ -72,6 +73,7 @@ public class Controller implements Initializable {
     //Quản Lý Khách Hàng Trả Sách
 
     //khai tao các ô nghập ở đây
+        public TextField
 
     public void themKhachTra(){
 

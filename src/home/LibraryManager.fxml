@@ -44,11 +44,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#btDeleteBook" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteBook" text="Xóa" textFill="WHITE" />
-                        <TextField layoutX="28.0" layoutY="136.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
-                        <TextField layoutX="28.0" layoutY="218.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
-                        <TextField layoutX="28.0" layoutY="300.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tác Giả" />
-                        <TextField layoutX="28.0" layoutY="382.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Thể Loại" />
+                        <Button fx:id="btDelete_B" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#btDeleteBook" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteBook" text="Xóa" textFill="WHITE" />
+                        <TextField fx:id="txtMa_S" layoutX="28.0" layoutY="136.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField fx:id="txtTen_S" layoutX="28.0" layoutY="218.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
+                        <TextField fx:id="txtTacgia" layoutX="28.0" layoutY="300.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tác Giả" />
+                        <TextField fx:id="txtTheloai" layoutX="28.0" layoutY="382.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Thể Loại" />
                         <TextField layoutX="28.0" layoutY="464.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
                         <Text fill="WHITE" layoutX="57.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thêm Sách Vào Thư Viện">
                            <font>
@@ -79,11 +79,11 @@
                            </cursor></Button>
                         <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" fx:id="xoaKhachMuon" />
                         <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
-                        <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
-                        <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
-                        <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
-                        <TextField layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
-                        <TextField layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <TextField fx:id="txtTenNM" layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
+                        <DatePicker fx:id="txtNgayM" layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
+                        <TextField fx:id="txtMaSNM" layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField fx:id="txtTenSNM" layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
+                        <TextField fx:id="txtSoLSM" layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
                         <Text fill="WHITE" layoutX="62.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Mượn Sách">
                            <font>
                               <Font name="System Bold" size="24.0" />
