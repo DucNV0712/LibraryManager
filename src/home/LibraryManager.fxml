@@ -39,7 +39,7 @@
                               <TableColumn fx:id="tbNumberb" minWidth="2.0" prefWidth="100.0" text="Số Lượng" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btAddBook" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
+                        <Button fx:id="btAddBook" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#btEditB" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Sửa" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -55,6 +55,11 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
+                        <Button fx:id="btAddBook1" layoutX="35.0" layoutY="662.0" mnemonicParsing="false" onAction="#btAddBook" prefHeight="40.0" prefWidth="100.0" styleClass="btAddBook" text="Thêm" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>

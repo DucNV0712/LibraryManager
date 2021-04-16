@@ -52,7 +52,9 @@ public class Controller implements Initializable {
     public TableColumn<qlTraSach,String>tb_DiaChiKT;//địa chỉ kh
     public TableColumn<qlTraSach,String>tb_idBKT;//mã sách trả
     public TableColumn<qlTraSach,Date>tb_NT;//ngày gian trả
+    //Nhập QL sách
 
+    //nhập ql ms
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //các hiện thị danh sách viết vô dây
@@ -104,11 +106,12 @@ public class Controller implements Initializable {
     public void ClickBook(){
         //Lấy Dữ Liệu Sách
         model.entity.qlSach sv = tbViewBook.getSelectionModel().getSelectedItem();
-        txtMa_S.setText(sv.nameB);
+        txtMa_S.setText(sv.idB);
 
     }
     public void ClickKHM(){
         //Lấy Dữ Liệu Người Mượn
+
 
     }
     public void ClickKHT(){
@@ -125,7 +128,12 @@ public class Controller implements Initializable {
 
 
     }
+    //Sửa Sách
+    public void btEditB(){
+
+    }
     public void btAddBook(){
+
 
     }
 
