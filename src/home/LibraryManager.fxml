@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
@@ -30,8 +29,9 @@
                <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="1373.0">
                      <children>
-                        <TableView fx:id="tbViewBook" layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
+                        <TableView fx:id="tbViewBook" layoutX="393.0" onMouseClicked="#ClickBook" prefHeight="733.0" prefWidth="870.0">
                           <columns>
+                              <TableColumn fx:id="tbSttB" prefWidth="75.0" text="STT" />
                             <TableColumn fx:id="tbIDb" prefWidth="120.0" text="Mã Sách" />
                             <TableColumn fx:id="tbNameb" prefWidth="280.0" text="Tên Sách" />
                               <TableColumn fx:id="tbAuthorb" minWidth="19.0" prefWidth="200.0" text="Tác Giả" />
@@ -63,14 +63,17 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="1263.0">
                      <children>
-                        <TableView layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
+                        <TableView fx:id="tbViewKM" layoutX="393.0" onMouseClicked="#ClickKHM" prefHeight="733.0" prefWidth="870.0">
                           <columns>
-                            <TableColumn prefWidth="100.0" text="Mã KH" />
-                            <TableColumn prefWidth="230.0" text="Tên KH" />
-                              <TableColumn prefWidth="100.0" text="Mã Sách" />
-                              <TableColumn prefWidth="220.0" text="Tên Sách" />
-                              <TableColumn prefWidth="100.0" text="Số Lượng" />
-                              <TableColumn prefWidth="119.0" text="Ngày Mượn" />
+                              <TableColumn fx:id="tb_SttMS" prefWidth="75.0" text="STT" />
+                            <TableColumn fx:id="tb_IDKM" prefWidth="100.0" text="Mã KH" />
+                            <TableColumn fx:id="tb_NameKM" prefWidth="230.0" text="Tên KH" />
+                              <TableColumn fx:id="tb_PhoneM" prefWidth="150.0" text="SĐT" />
+                              <TableColumn fx:id="tb_AdressM" prefWidth="200.0" text="Địa Chỉ" />
+                              <TableColumn fx:id="tb_idBKM" prefWidth="100.0" text="Mã Sách" />
+                              <TableColumn fx:id="tb_NameBKM" prefWidth="220.0" text="Tên Sách" />
+                              <TableColumn fx:id="tb_SlKM" prefWidth="100.0" text="Số Lượng" />
+                              <TableColumn fx:id="tb_NM" prefWidth="119.0" text="Ngày Mượn" />
                           </columns>
                         </TableView>
                         <Button fx:id="editCus" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
@@ -79,16 +82,19 @@
                            </cursor></Button>
                         <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" fx:id="xoaKhachMuon" />
                         <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
-                        <TextField fx:id="txtTenNM" layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
-                        <DatePicker fx:id="txtNgayM" layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
-                        <TextField fx:id="txtMaSNM" layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
-                        <TextField fx:id="txtTenSNM" layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
-                        <TextField fx:id="txtSoLSM" layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
-                        <Text fill="WHITE" layoutX="62.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Mượn Sách">
+                        <Text fill="WHITE" layoutX="62.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Mượn Sách">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
+                        <TextField fx:id="txt_idKT" layoutX="28.0" layoutY="87.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Khách Hàng" />
+                        <TextField fx:id="txtTenKT" layoutX="28.0" layoutY="159.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
+                        <TextField fx:id="txtMaKT" layoutX="28.0" layoutY="231.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Điện Thoại" />
+                        <TextField fx:id="txtTenSNM11" layoutX="28.0" layoutY="303.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Địa Chỉ" />
+                        <TextField fx:id="txtSoLSM11" layoutX="28.0" layoutY="375.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <DatePicker fx:id="txtNgayM111" layoutX="28.0" layoutY="591.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
+                        <TextField fx:id="txtSoLSM12" layoutX="28.0" layoutY="447.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <TextField fx:id="txtSoLSM121" layoutX="28.0" layoutY="519.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
                      </children>
                   </AnchorPane>
             </content>
@@ -97,14 +103,17 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="1263.0">
                      <children>
-                        <TableView layoutX="393.0" prefHeight="733.0" prefWidth="870.0">
+                        <TableView fx:id="tbViewKT" layoutX="393.0" onMouseClicked="#ClickKHT" prefHeight="733.0" prefWidth="870.0">
                            <columns>
-                              <TableColumn prefWidth="100.0" text="Mã KH" />
-                              <TableColumn prefWidth="230.0" text="Tên KH" />
-                              <TableColumn prefWidth="100.0" text="Mã Sách" />
-                              <TableColumn prefWidth="220.0" text="Tên Sách" />
-                              <TableColumn prefWidth="100.0" text="Số Lượng" />
-                              <TableColumn prefWidth="119.0" text="Ngày Trả" />
+                              <TableColumn fx:id="tb_SttTS" prefWidth="75.0" text="STT" />
+                              <TableColumn fx:id="tb_IDKT" prefWidth="100.0" text="Mã KH" />
+                              <TableColumn fx:id="tb_NameKT" prefWidth="230.0" text="Tên KH" />
+                              <TableColumn fx:id="tb_SdtKT" prefWidth="150.0" text="SĐT" />
+                              <TableColumn fx:id="tb_DiaChiKT" prefWidth="200.0" text="Địa Chỉ" />
+                              <TableColumn fx:id="tb_idBKT" prefWidth="100.0" text="Mã Sách" />
+                              <TableColumn fx:id="tb_NameBKT" prefWidth="220.0" text="Tên Sách" />
+                              <TableColumn fx:id="tb_SlT" prefWidth="100.0" text="Số Lượng" />
+                              <TableColumn fx:id="tb_NT" prefWidth="119.0" text="Ngày Trả" />
                            </columns>
                         </TableView>
                         <Button layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
@@ -114,16 +123,17 @@
                         </Button>
                         <Button fx:id="deleteCus1" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#xoaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
                         <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
-                        <TextField layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
-                        <DatePicker layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
-                        <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
-                        <TextField layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
-                        <TextField layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
-                        <Text fill="WHITE" layoutX="78.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Trả Sách">
+                        <TextField layoutX="28.0" layoutY="216.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Khách Hàng" />
+                        <DatePicker layoutX="28.0" layoutY="544.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
+                        <TextField layoutX="28.0" layoutY="462.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
+                        <Text fill="WHITE" layoutX="78.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Trả Sách">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Text>
+                        <TextField fx:id="txt_MaKT" layoutX="28.0" layoutY="134.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Khách Hàng" />
+                        <TextField layoutX="28.0" layoutY="298.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField layoutX="28.0" layoutY="380.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
                      </children>
                   </AnchorPane>
                </content>

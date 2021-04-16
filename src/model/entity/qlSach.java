@@ -1,18 +1,30 @@
 package model.entity;
 
+import java.sql.Date;
+
 public class qlSach {
+    public Integer sttb;
     public String idB;
     public String nameB;
     public String author;
     public String category;
     public Integer amountB;
 
-    public qlSach(String idB, String nameB, String author, String category, Integer amountB) {
+    public qlSach(Integer sttb, String idB, String nameB, String author, String category, Integer amountB) {
+        this.sttb = sttb;
         this.idB = idB;
         this.nameB = nameB;
         this.author = author;
         this.category = category;
         this.amountB = amountB;
+    }
+
+    public Integer getSttb() {
+        return sttb;
+    }
+
+    public void setSttb(Integer sttb) {
+        this.sttb = sttb;
     }
 
     public String getIdB() {
