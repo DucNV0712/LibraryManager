@@ -1,6 +1,7 @@
 package home;
 
 
+import database.Connecter;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -61,9 +62,32 @@ public class Controller implements Initializable {
     //Nhập QL sách
    //ô nhâp tên sách
 
-    //nhập qkl ngừi mượn
+    public TextField txtMa_S;
+    public TextField txtTen_S;
+    public TextField txtTacgia;
+    public TextField txtTheloai;
+    public TextField txt_Soluong;
 
-    //nhập ql ms
+    //nhập qkl ngườii mượn
+    public TextField txt_mkhm;
+    public TextField txt_tkhm;
+    public TextField txt_sdtm;
+    public TextField txt_diachim;
+    public TextField txt_masachm;
+    public TextField txt_tensachm;
+    public TextField txt_soluongm;
+    public TextField txt_ngaym;
+
+    //nhập qltrasach
+    public TextField txt_makt;
+    public TextField txt_tenkt;
+    public TextField txt_sdtkt;
+    public TextField txt_diachikt;
+    public TextField txt_nhapmakt;
+    public TextField txt_nhaptenkt;
+    public TextField txt_soluongkt;
+    public TextField txt_ngaykt;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -109,13 +133,6 @@ public class Controller implements Initializable {
 
 
     }
-    public TextField txtMa_S;
-
-    public TextField txtTen_S;
-
-    public TextField txtTacgia;
-    public TextField txtTheloai;
-    public TextField txt_Soluong;
 
     //lấy dữ liệu của bảng từ sự kiện Cick
 
@@ -177,9 +194,26 @@ public class Controller implements Initializable {
 
     //Quản Lý Khách Hàng Mượn Sách
     //khai tao các ô nghập ở đây
-    public TextField txtTenNM;
+
 
     public void themKhachMuon(){
+        String mkh = txt_mkhm.getText();
+        String mkh = txt_mkhm.getText();
+        String mkh = txt_mkhm.getText();
+        String mkh = txt_mkhm.getText();
+        String mkh = txt_mkhm.getText();
+        if (!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
+            Integer sl = Integer.parseInt(soluong);
+            CustomerBorrowBooksAccessObject CbAOm = new CustomerBorrowBooksAccessObject();
+            qlTraSach ms =new qlMuonSach(null,mkh);
+            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+            Main.mainStage.setScene(new Scene(root, 1263, 944));
+            Main.mainStage.show();
+        }
+
+
 
     }
 

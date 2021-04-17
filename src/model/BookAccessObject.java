@@ -41,6 +41,7 @@ public class BookAccessObject implements DataAccessObject<qlSach> {
 
     @Override
     public boolean create(qlSach qls) throws SQLException {
+
         try {
             Connecter cn = Connecter.getInstance();
             String sql = "insert into qlsach(maS,tenS,tacGia,theLoai,soLuong)" +"value('"+qls.getIdB()+"','"+qls.getNameB()+"','"+qls.getAuthor()+"','"+qls.getCategory()+"',"+qls.getAmountB()+")";
