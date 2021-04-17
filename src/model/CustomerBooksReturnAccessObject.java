@@ -3,12 +3,13 @@ package model;
 import database.Connecter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.entity.qlSach;
 import model.entity.qlTraSach;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerBooksReturnAccessObject implements DataAccessObject {
+public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSach> {
 
     @Override
     public ObservableList getList() {
@@ -37,19 +38,24 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject {
         return ds;
     }
 
-
     @Override
-    public boolean create(Object o) throws SQLException {
+    public boolean create(qlTraSach qlTraSach) throws SQLException {
         return false;
     }
 
     @Override
-    public boolean update(Object o) {
+    public boolean create(qlSach qls) throws SQLException {
         return false;
     }
 
     @Override
-    public boolean delete(Object o) {
+    public boolean update(qlTraSach qlTraSach) {
         return false;
     }
+
+    @Override
+    public boolean delete(qlTraSach qlTraSach) {
+        return false;
+    }
+
 }

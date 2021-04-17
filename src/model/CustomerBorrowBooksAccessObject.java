@@ -4,12 +4,13 @@ import database.Connecter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.entity.qlMuonSach;
+import model.entity.qlSach;
 
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerBorrowBooksAccessObject implements DataAccessObject {
+public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonSach> {
 
     @Override
     public ObservableList getList() {
@@ -41,17 +42,24 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject {
     }
 
     @Override
-    public boolean create(Object o) throws SQLException {
+    public boolean create(qlMuonSach qlMuonSach) throws SQLException {
         return false;
     }
 
     @Override
-    public boolean update(Object o) {
+    public boolean create(qlSach qls) throws SQLException {
+        return false;
+    }
+
+
+    @Override
+    public boolean update(qlMuonSach qlMuonSach) {
         return false;
     }
 
     @Override
-    public boolean delete(Object o) {
+    public boolean delete(qlMuonSach qlMuonSach) {
         return false;
     }
+
 }
