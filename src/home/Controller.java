@@ -2,7 +2,10 @@ package home;
 
 
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -13,11 +16,14 @@ import model.CustomerBorrowBooksAccessObject;
 import model.entity.qlMuonSach;
 import model.entity.qlSach;
 import model.entity.qlTraSach;
-
+import main.Main;
+import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -41,7 +47,7 @@ public class Controller implements Initializable {
     public TableColumn<qlMuonSach,String> tb_NameBKM;
     public TableColumn<qlMuonSach,Integer>tb_SlKM;
     public TableColumn<qlMuonSach, Date> tb_NM;
-    public TextField txtTen_S;
+
     //bảng Người Trả
     public TableView<qlMuonSach> tbViewKT;
     public TableColumn<qlTraSach,Integer>tb_SttTS;//số TT
@@ -53,8 +59,12 @@ public class Controller implements Initializable {
     public TableColumn<qlTraSach,String>tb_idBKT;//mã sách trả
     public TableColumn<qlTraSach,Date>tb_NT;//ngày gian trả
     //Nhập QL sách
+   //ô nhâp tên sách
+
+    //nhập qkl ngừi mượn
 
     //nhập ql ms
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //các hiện thị danh sách viết vô dây
@@ -100,6 +110,13 @@ public class Controller implements Initializable {
 
     }
     public TextField txtMa_S;
+
+    public TextField txtTen_S;
+
+    public TextField txtTacgia;
+    public TextField txtTheloai;
+    public TextField txt_Soluong;
+
     //lấy dữ liệu của bảng từ sự kiện Cick
 
 
@@ -131,8 +148,28 @@ public class Controller implements Initializable {
     //Sửa Sách
     public void btEditB(){
 
+
     }
-    public void btAddBook(){
+    public void btAddBook() throws SQLException, IOException {
+        // lay input cua nguoi dung
+        // tao doi tuong qlSach tu thong tin tren
+        String maS = txtMa_S.getText();
+        String tenS = txtTen_S.getText();
+        String tacGia = txtTacgia.getText();
+        String theL = txtTheloai.getText();
+        String soLuong = txt_Soluong.getText();
+        if(!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
+            BookAccessObject bao = new BookAccessObject();
+            Integer soL = Integer.parseInt(soLuong);
+            qlSach s = new qlSach(null,maS,tenS,tacGia,theL,soL);
+            bao.create(s);
+            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+            Main.mainStage.setScene(new Scene(root, 1263, 944));
+            Main.mainStage.show();
+
+        }
 
 
     }
