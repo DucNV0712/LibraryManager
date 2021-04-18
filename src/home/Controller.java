@@ -213,7 +213,6 @@ public class Controller implements Initializable {
             Integer soluongm = Integer.parseInt(soluongms);
             Date ngaym = Date.valueOf(ngayms);
 
-
             CustomerBorrowBooksAccessObject book2 = new CustomerBorrowBooksAccessObject();
             qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngaym);
             book2.create(ms);
@@ -240,28 +239,6 @@ public class Controller implements Initializable {
 
 
     public void themKhachTra() throws IOException, SQLException {
-//        String mkts = txt_makt.getText();
-//        String tkts = txt_tenkt.getText();
-//        String sdtkts = txt_sdtkt.getText();
-//        String diachikts = txt_diachikt.getText();
-//        String nhapmakts = txt_nhapmakt.getText();
-//        String nhaptenkts = txt_nhaptenkt.getText();
-//        String soluongkts = txt_soluongkt.getText();
-//        String ngaykts = txt_ngaykt.getValue().toString();
-//
-//        if (!mkts.isEmpty()&&!tkts.isEmpty()&&!sdtkts.isEmpty()&&!diachikts.isEmpty()&&!nhapmakts.isEmpty()&&!nhaptenkts.isEmpty()&&!soluongkts.isEmpty()){
-//            Integer phonekt = Integer.parseInt(sdtkts);
-//            Integer soluongkt = Integer.parseInt(soluongkts);
-//
-//            CustomerBooksReturnAccessObject book3 = new CustomerBooksReturnAccessObject();
-//            qlTraSach ts =new qlTraSach(null,mkts,tkts,phonekt,diachikts,nhapmakts,nhaptenkts,soluongkt,ngaykts);
-//            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
-//            book3.create(ts);
-//            Parent root;
-//            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
-//            Main.mainStage.setScene(new Scene(root, 1263, 944));
-//            Main.mainStage.show();
-//        }
     }
 
     public void suaKhachTra(){
