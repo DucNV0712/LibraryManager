@@ -8,7 +8,7 @@ public class qlTraSach {
     public String idKT;
     public String nameKT;
     public Integer phoneKT;
-    public  String adressKT;
+    public String adressKT;
     public String idB;
     public String nameB;
     public Integer soluongT;

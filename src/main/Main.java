@@ -19,7 +19,6 @@ public class Main extends Application {
         mainStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
         primaryStage.setTitle("Library Manager");
-
         Image image = new Image("./lib/img/Apps-Library-icon.png");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image);

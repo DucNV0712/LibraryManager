@@ -1,12 +1,13 @@
 package home;
 
 
-import database.Connecter;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -50,7 +51,7 @@ public class Controller implements Initializable {
     public TableColumn<qlMuonSach, Date> tb_NM;
 
     //bảng Người Trả
-    public TableView<qlMuonSach> tbViewKT;
+    public TableView<qlTraSach> tbViewKT;
     public TableColumn<qlTraSach,Integer>tb_SttTS;//số TT
     public TableColumn<qlTraSach,Integer>tb_SlT;//số lượng sách khách mượn
     public TableColumn<qlTraSach,Integer>tb_SdtKT;//sđt KH
@@ -76,7 +77,7 @@ public class Controller implements Initializable {
     public TextField txt_masachm;
     public TextField txt_tensachm;
     public TextField txt_soluongm;
-    public TextField txt_ngaym;
+    public DatePicker txt_ngaym;
 
     //nhập qltrasach
     public TextField txt_makt;
@@ -86,9 +87,11 @@ public class Controller implements Initializable {
     public TextField txt_nhapmakt;
     public TextField txt_nhaptenkt;
     public TextField txt_soluongkt;
-    public TextField txt_ngaykt;
-
-
+    public DatePicker txt_ngaykt;
+    //ô thống kê
+    public TextField tkS;
+    public TextField tkMS;
+    public TextField tkTS;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //các hiện thị danh sách viết vô dây
@@ -102,6 +105,7 @@ public class Controller implements Initializable {
         BookAccessObject BDAO = new BookAccessObject();
         ObservableList<qlSach> dsB = BDAO.getList();
         tbViewBook.setItems(dsB);
+        tkS.setText(String.valueOf(dsB.size()));
 
         //hiển thị danh sách người mượn
         tb_SttMS.setCellValueFactory(new PropertyValueFactory<>("sttMS"));
@@ -114,8 +118,9 @@ public class Controller implements Initializable {
         tb_SlKM.setCellValueFactory(new PropertyValueFactory<>("soluongM"));
         tb_NM.setCellValueFactory(new PropertyValueFactory<>("ngayM"));
         CustomerBorrowBooksAccessObject KMDAO = new CustomerBorrowBooksAccessObject();
-        ObservableList<qlMuonSach> dsM = KMDAO.getList();
+        ObservableList dsM = KMDAO.getList();
         tbViewKM.setItems(dsM);
+        tkMS.setText(String.valueOf(dsM.size()));
 
         //Hiển thị danh sách người trả
         tb_SttTS.setCellValueFactory(new PropertyValueFactory<>("sttTS"));
@@ -128,8 +133,9 @@ public class Controller implements Initializable {
         tb_SlT.setCellValueFactory(new PropertyValueFactory<>("soluongT"));
         tb_NT.setCellValueFactory(new PropertyValueFactory<>("ngayT"));
         CustomerBooksReturnAccessObject KTDAO = new CustomerBooksReturnAccessObject();
-        ObservableList<qlMuonSach> dsT = KTDAO.getList();
+        ObservableList<qlTraSach> dsT = KTDAO.getList();
         tbViewKT.setItems(dsT);
+        tkTS.setText(String.valueOf(dsT.size()));
 
 
     }
@@ -140,7 +146,6 @@ public class Controller implements Initializable {
     public void ClickBook(){
         //Lấy Dữ Liệu Sách
         model.entity.qlSach sv = tbViewBook.getSelectionModel().getSelectedItem();
-
         txtMa_S.setText(sv.getIdB());
         txtTen_S.setText(sv.getNameB());
         txtTacgia.setText(sv.getAuthor());
@@ -166,14 +171,27 @@ public class Controller implements Initializable {
         BookAccessObject BAO =new BookAccessObject();
         qlSach qlSach = new qlSach(null,qls.getIdB(),qls.getNameB(),qls.getAuthor(),qls.getCategory(),qls.getAmountB());
         BAO.delete(qlSach);
-        JOptionPane.showMessageDialog(null,"Thêm Thành Công");
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
-        Main.mainStage.setScene(new Scene(root, 1263, 944));
-        Main.mainStage.show();
+        JOptionPane.showMessageDialog(null,"Xóa Sách Thành Công");
+
     }
     //Sửa Sách
-    public void btEditB(){
+    public void btEditB() throws IOException {
+        String maS = txtMa_S.getText();
+        String tenS = txtTen_S.getText();
+        String tacGia = txtTacgia.getText();
+        String theL = txtTheloai.getText();
+        String soLuong = txt_Soluong.getText();
+        if(!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
+            BookAccessObject bao = new BookAccessObject();
+            Integer soL = Integer.parseInt(soLuong);
+            qlSach s = new qlSach(null,maS,tenS,tacGia,theL,soL);
+            bao.update(s);
+            JOptionPane.showMessageDialog(null,"Sửa Thành Công");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+            Main.mainStage.setScene(new Scene(root, 1263, 944));
+            Main.mainStage.show();
+        }
 
 
     }
@@ -189,7 +207,8 @@ public class Controller implements Initializable {
             BookAccessObject bao = new BookAccessObject();
             Integer soL = Integer.parseInt(soLuong);
             qlSach s = new qlSach(null,maS,tenS,tacGia,theL,soL);
-            bao.create(s);
+            System.out.println(bao.create(s));
+//            bao.create(s);
             JOptionPane.showMessageDialog(null,"Thêm Thành Công");
             Parent root;
             root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
@@ -207,28 +226,40 @@ public class Controller implements Initializable {
 
 
     public void themKhachMuon(){
-//        String  = txt_mkhm.getText();
-//        String  = txt_mkhm.getText();
-//        String  = txt_mkhm.getText();
-//        String  = txt_mkhm.getText();
-//        String  = txt_mkhm.getText();
-//        if (!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
-//            Integer sl = Integer.parseInt(soluong);
-//            CustomerBorrowBooksAccessObject CbAOm = new CustomerBorrowBooksAccessObject();
-//            qlTraSach ms =new qlMuonSach(null,mkh);
-//            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
-//            Parent root;
-//            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
-//            Main.mainStage.setScene(new Scene(root, 1263, 944));
-//            Main.mainStage.show();
-        }
-
+        String mkhms = txt_mkhm.getText();
+        String tkhms = txt_tkhm.getText();
+        String sdtms = txt_sdtm.getText();
+        String diachims = txt_diachim.getText();
+        String masachms = txt_masachm.getText();
+        String tensachms = txt_tensachm.getText();
+        String soluongms = txt_soluongm.getText();
+        String ngayms = txt_ngaym.getValue().toString();
+//        if (!mkhms.isEmpty()&&!tkhms.isEmpty()&&!sdtms.isEmpty()&&!diachims.isEmpty()&&!masachms.
+//                isEmpty()&&!tensachms.isEmpty()&&!soluongms.isEmpty()){
+            Integer phonem = Integer.parseInt(sdtms);
+            Integer soluongm = Integer.parseInt(soluongms);
+            CustomerBorrowBooksAccessObject book2 = new CustomerBorrowBooksAccessObject();
+            qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngayms);
+//            book2.create(ms);
+            System.out.println(book2.create(ms));
+            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+//        }
+    }
 
     public void suaKhachMuon(){
 
     }
-    public void xoaKhachMuon(){
-
+    public void xoaKhachMuon() throws IOException {
+        model.entity.qlMuonSach  qlms = tbViewKM.getSelectionModel().getSelectedItem();
+        //xóa sách
+        CustomerBorrowBooksAccessObject CBBAO = new CustomerBorrowBooksAccessObject();
+        qlMuonSach qlMSach = new qlMuonSach(null,qlms.getNameKM(),qlms.getIdKM(),qlms.getPhoneKM(),qlms.getAdressKM(),qlms.getIdB(),qlms.getNameB(),qlms.getSoluongM(),qlms.getNgayM());
+        CBBAO.delete(qlMSach);
+        JOptionPane.showMessageDialog(null,"Xóa KH  Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
     }
 
 
@@ -247,7 +278,17 @@ public class Controller implements Initializable {
     }
 
 
-    public void xoaKhachTra(){
+    public void xoaKhachTra() throws IOException {
+        qlTraSach qlts = tbViewKT.getSelectionModel().getSelectedItem();
+        //xóa sách
+        CustomerBooksReturnAccessObject CBRAOM = new CustomerBooksReturnAccessObject();
+        qlTraSach qlTs = new qlTraSach(null,qlts.getIdKT(),qlts.getNameKT(),qlts.getPhoneKT(),qlts.getAdressKT(),qlts.getIdB(),qlts.getNameB(),qlts.getSoluongT(),qlts.getNgayT());
+        CBRAOM.delete(qlts);
+        JOptionPane.showMessageDialog(null,"Xóa KH  Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
 
     }
 

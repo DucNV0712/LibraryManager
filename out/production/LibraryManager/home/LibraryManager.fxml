@@ -81,12 +81,12 @@
                               <TableColumn fx:id="tb_NM" prefWidth="119.0" text="Ngày Mượn" />
                           </columns>
                         </TableView>
-                        <Button fx:id="editCus" layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
+                        <Button layoutX="36.0" layoutY="662.0" mnemonicParsing="false" onAction="#suaKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btEditCusBook" text="Sửa" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="CROSSHAIR" />
                            </cursor></Button>
-                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" fx:id="xoaKhachMuon" />
-                        <Button fx:id="addCus" layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
+                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#xoaKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachMuon" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
                         <Text fill="WHITE" layoutX="62.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Mượn Sách">
                            <font>
                               <Font name="System Bold" size="24.0" />
@@ -97,7 +97,7 @@
                         <TextField fx:id="txt_sdtm" layoutX="28.0" layoutY="231.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Điện Thoại" />
                         <TextField fx:id="txt_diachim" layoutX="28.0" layoutY="303.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Địa Chỉ" />
                         <TextField fx:id="txt_masachm" layoutX="28.0" layoutY="375.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
-                        <DatePicker  layoutX="28.0" layoutY="591.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
+                        <DatePicker fx:id="txt_ngaym" layoutX="28.0" layoutY="591.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Mượn" />
                         <TextField fx:id="txt_tensachm" layoutX="28.0" layoutY="447.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
                         <TextField fx:id="txt_soluongm" layoutX="28.0" layoutY="519.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
                      </children>
@@ -126,10 +126,10 @@
                               <Cursor fx:constant="CROSSHAIR" />
                            </cursor>
                         </Button>
-                        <Button fx:id="deleteCus1" layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#xoaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
+                        <Button layoutX="262.0" layoutY="662.0" mnemonicParsing="false" onAction="#xoaKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btDeleteCusBook" text="Xóa" textFill="WHITE" />
                         <Button layoutX="147.0" layoutY="662.0" mnemonicParsing="false" onAction="#themKhachTra" prefHeight="40.0" prefWidth="100.0" styleClass="btAddCusBook" text="Thêm" textFill="WHITE" />
                         <TextField fx:id="txt_tenkt" layoutX="28.0" layoutY="159.0" prefHeight="41.0" prefWidth="338.0" promptText="Tên Khách Hàng" />
-                        <DatePicker  layoutX="28.0" layoutY="591.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
+                        <DatePicker fx:id="txt_ngaykt" layoutX="28.0" layoutY="591.0" prefHeight="41.0" prefWidth="191.0" promptText="Ngày Trả" />
                         <TextField fx:id="txt_nhaptenkt" layoutX="28.0" layoutY="447.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Tên Sách" />
                         <Text fill="WHITE" layoutX="78.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khách Hàng Trả Sách">
                            <font>

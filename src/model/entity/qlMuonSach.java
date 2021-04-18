@@ -1,19 +1,18 @@
 package model.entity;
 
 import java.sql.Date;
-
 public class qlMuonSach {
  public Integer sttMS;
  public String idKM;
  public String nameKM;
  public Integer phoneKM;
- public  String adressKM;
+ public String adressKM;
  public String idB;
  public String nameB;
  public Integer soluongM;
- public Date ngayM;
+ public String ngayM;
 
- public qlMuonSach(Integer sttMS, String idKM, String nameKM, Integer phoneKM, String adressKM, String idB, String nameB, Integer soluongM, Date ngayM) {
+ public qlMuonSach(Integer sttMS, String idKM, String nameKM, Integer phoneKM, String adressKM, String idB, String nameB, Integer soluongM, String ngayM) {
   this.sttMS = sttMS;
   this.idKM = idKM;
   this.nameKM = nameKM;
@@ -25,7 +24,7 @@ public class qlMuonSach {
   this.ngayM = ngayM;
  }
 
-    public Integer getSttMS() {
+ public Integer getSttMS() {
   return sttMS;
  }
 
@@ -89,11 +88,11 @@ public class qlMuonSach {
   this.soluongM = soluongM;
  }
 
- public Date getNgayM() {
+ public String getNgayM() {
   return ngayM;
  }
 
- public void setNgayM(Date ngayM) {
+ public void setNgayM(String ngayM) {
   this.ngayM = ngayM;
  }
 }

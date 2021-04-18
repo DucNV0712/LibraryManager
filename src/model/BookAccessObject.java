@@ -44,17 +44,27 @@ public class BookAccessObject implements DataAccessObject<qlSach> {
     public boolean create(qlSach qls) throws SQLException {
         try {
             Connecter cn = Connecter.getInstance();
-            String sql = "insert into qlsach(maS,tenS,tacGia,theLoai,soLuong)" +"value('"+qls.getIdB()+"','"+qls.getNameB()+"','"+qls.getAuthor()+"','"+qls.getCategory()+"',"+qls.getAmountB()+")";
+            String sql = "insert into  qlsach(maS,tenS,tacGia,theLoai,soLuong)"+" value('"+qls.getIdB()+"','"+qls.getNameB()+"','"+qls.getAuthor()+"','"+qls.getCategory()+"',"+qls.getAmountB()+")";
             cn.getStatement().executeUpdate(sql);
             return false;
         }catch (Exception e){
+            System.out.println("Loi");
             return true;
         }
     }
 
     @Override
-    public boolean update(qlSach qlSach) {
-        return false;
+        public boolean update(qlSach qls) {
+        //chỉnh sửa thông tin sách
+        try{
+            Connecter c = Connecter.getInstance();
+            String txt_sql = "update qlsach set  tenS= '"+qls.getNameB()+"',tacGia ='"+qls.getAuthor()+"' ,theLoai ='"+qls.getCategory()+"',soLuong = "+qls.getAmountB()+" where maS = '"+qls.getIdB()+"'";
+            c.statement.execute(txt_sql);
+            return false;
+        } catch ( SQLException e) {
+            return true;
+        }
+
     }
 
     @Override

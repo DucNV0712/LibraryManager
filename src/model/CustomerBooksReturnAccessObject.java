@@ -63,8 +63,18 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
     }
 
     @Override
-    public boolean delete(qlTraSach qlTraSach) {
-        return false;
+    public boolean delete(qlTraSach qlTS) {
+        try {
+            Connecter c = Connecter.getInstance();
+            String sql = "DELETE FROM `qltrasach` WHERE maKhT='"+qlTS.getIdKT()+"'";
+            c.getStatement().executeUpdate(sql);
+            return false;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Lỗi");
+            return true;
+        }
+
     }
 
 
