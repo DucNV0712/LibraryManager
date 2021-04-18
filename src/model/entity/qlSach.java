@@ -1,8 +1,6 @@
 package model.entity;
 
-import java.sql.Date;
-
-public class qlSach {
+public class qlSach extends Throwable {
     public Integer sttb;
     public String idB;
     public String nameB;
@@ -19,6 +17,10 @@ public class qlSach {
         this.amountB = amountB;
     }
 
+    public String getIdB() {
+        return idB;
+    }
+
     public Integer getSttb() {
         return sttb;
     }
@@ -27,9 +29,6 @@ public class qlSach {
         this.sttb = sttb;
     }
 
-    public String getIdB() {
-        return idB;
-    }
 
     public void setIdB(String idB) {
         this.idB = idB;

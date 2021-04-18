@@ -40,15 +40,16 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
 
     @Override
     public boolean create(qlTraSach qlTraSach) throws SQLException {
-        try {
-            Connecter cn = Connecter.getInstance();
-            String sql = "insert into qlTraSach(sttT,maKhT,tenKhT,sdthkT,diaChiNT,maS,tenS,ngayTra,soLuong)" +"value('"+qlTraSach.getIdKT()+"','"+qlTraSach.getNameKT()+"'," +
-                    "'"+qlTraSach.getPhoneKT()+"','"+qlTraSach.getAdressKT()+"',"+qlTraSach.getIdB()+","+qlTraSach.getNameB()+","+qlTraSach.getSoluongT()+","+qlTraSach.getNgayT()+")";
-            cn.getStatement().executeUpdate(sql);
-            return false;
-        }catch (Exception e){
-            return true;
-        }
+//        try {
+//            Connecter cn = Connecter.getInstance();
+//            String sql = "insert into qlTraSach(sttT,maKhT,tenKhT,sdthkT,diaChiNT,maS,tenS,ngayTra,soLuong)" +"value('"+qlTraSach.getIdKT()+"','"+qlTraSach.getNameKT()+"'," +
+//                    "'"+qlTraSach.getPhoneKT()+"','"+qlTraSach.getAdressKT()+"',"+qlTraSach.getIdB()+","+qlTraSach.getNameB()+","+qlTraSach.getSoluongT()+","+qlTraSach.getNgayT()+")";
+//            cn.getStatement().executeUpdate(sql);
+//            return false;
+//        }catch (Exception e){
+//            return true;
+//        }
+        return true;
     }
 
     @Override

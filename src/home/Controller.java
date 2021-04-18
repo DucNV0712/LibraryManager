@@ -140,12 +140,15 @@ public class Controller implements Initializable {
     public void ClickBook(){
         //Lấy Dữ Liệu Sách
         model.entity.qlSach sv = tbViewBook.getSelectionModel().getSelectedItem();
-        txtMa_S.setText(sv.idB);
 
+        txtMa_S.setText(sv.getIdB());
+        txtTen_S.setText(sv.getNameB());
+        txtTacgia.setText(sv.getAuthor());
+        txtTheloai.setText(sv.getCategory());
+        txt_Soluong.setText(String.valueOf(sv.amountB));
     }
     public void ClickKHM(){
         //Lấy Dữ Liệu Người Mượn
-
 
     }
     public void ClickKHT(){
@@ -157,10 +160,17 @@ public class Controller implements Initializable {
     // Quản Lý Sách
 
 
-    public void btDeleteBook(){
-        //xóa sách viết vô đây
-
-
+    public void btDeleteBook() throws IOException{
+        model.entity.qlSach  qls = tbViewBook.getSelectionModel().getSelectedItem();
+        //xóa sách
+        BookAccessObject BAO =new BookAccessObject();
+        qlSach qlSach = new qlSach(null,qls.getIdB(),qls.getNameB(),qls.getAuthor(),qls.getCategory(),qls.getAmountB());
+        BAO.delete(qlSach);
+        JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
     }
     //Sửa Sách
     public void btEditB(){
@@ -197,25 +207,22 @@ public class Controller implements Initializable {
 
 
     public void themKhachMuon(){
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        if (!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
-            Integer sl = Integer.parseInt(soluong);
-            CustomerBorrowBooksAccessObject CbAOm = new CustomerBorrowBooksAccessObject();
-            qlTraSach ms =new qlMuonSach(null,mkh);
-            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
-            Parent root;
-            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
-            Main.mainStage.setScene(new Scene(root, 1263, 944));
-            Main.mainStage.show();
+//        String  = txt_mkhm.getText();
+//        String  = txt_mkhm.getText();
+//        String  = txt_mkhm.getText();
+//        String  = txt_mkhm.getText();
+//        String  = txt_mkhm.getText();
+//        if (!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
+//            Integer sl = Integer.parseInt(soluong);
+//            CustomerBorrowBooksAccessObject CbAOm = new CustomerBorrowBooksAccessObject();
+//            qlTraSach ms =new qlMuonSach(null,mkh);
+//            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+//            Parent root;
+//            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+//            Main.mainStage.setScene(new Scene(root, 1263, 944));
+//            Main.mainStage.show();
         }
 
-
-
-    }
 
     public void suaKhachMuon(){
 

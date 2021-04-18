@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import model.entity.qlSach;
 
 
+import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -58,8 +59,18 @@ public class BookAccessObject implements DataAccessObject<qlSach> {
     }
 
     @Override
-    public boolean delete(qlSach qlSach) {
-        return false;
+    public boolean delete(qlSach qls) {
+        try {
+            Connecter c = Connecter.getInstance();
+            String sql = "DELETE FROM `qlsach` WHERE maS ='"+qls.getIdB()+"'";
+            c.getStatement().executeUpdate(sql);
+            return false;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Lỗi");
+            return true;
+        }
+
     }
 
 
