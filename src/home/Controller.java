@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -76,7 +77,7 @@ public class Controller implements Initializable {
     public TextField txt_masachm;
     public TextField txt_tensachm;
     public TextField txt_soluongm;
-    public TextField txt_ngaym;
+    public DatePicker txt_ngaym;
 
     //nhập qltrasach
     public TextField txt_makt;
@@ -86,7 +87,7 @@ public class Controller implements Initializable {
     public TextField txt_nhapmakt;
     public TextField txt_nhaptenkt;
     public TextField txt_soluongkt;
-    public TextField txt_ngaykt;
+    public DatePicker txt_ngaykt;
 
 
     @Override
@@ -176,10 +177,11 @@ public class Controller implements Initializable {
         String theL = txtTheloai.getText();
         String soLuong = txt_Soluong.getText();
         if(!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
-            BookAccessObject bao = new BookAccessObject();
+            BookAccessObject book1 = new BookAccessObject();
             Integer soL = Integer.parseInt(soLuong);
+
             qlSach s = new qlSach(null,maS,tenS,tacGia,theL,soL);
-            bao.create(s);
+            book1.create(s);
             JOptionPane.showMessageDialog(null,"Thêm Thành Công");
             Parent root;
             root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
@@ -195,26 +197,32 @@ public class Controller implements Initializable {
     //Quản Lý Khách Hàng Mượn Sách
     //khai tao các ô nghập ở đây
 
+    public void themKhachMuon() throws IOException, SQLException {
+        String mkhms = txt_mkhm.getText();
+        String tkhms = txt_tkhm.getText();
+        String sdtms = txt_sdtm.getText();
+        String diachims = txt_diachim.getText();
+        String masachms = txt_masachm.getText();
+        String tensachms = txt_tensachm.getText();
+        String soluongms = txt_soluongm.getText();
+        String ngayms = txt_ngaym.toString();
 
-    public void themKhachMuon(){
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        String mkh = txt_mkhm.getText();
-        if (!maS.isEmpty()&&!tenS.isEmpty()&&!tacGia.isEmpty()&&!theL.isEmpty()&&!soLuong.isEmpty()){
-            Integer sl = Integer.parseInt(soluong);
-            CustomerBorrowBooksAccessObject CbAOm = new CustomerBorrowBooksAccessObject();
-            qlTraSach ms =new qlMuonSach(null,mkh);
+        if (!mkhms.isEmpty()&&!tkhms.isEmpty()&&!sdtms.isEmpty()&&!diachims.isEmpty()&&!masachms.
+                isEmpty()&&!tensachms.isEmpty()&&!soluongms.isEmpty()&&!ngayms.isEmpty()){
+            Integer phonem = Integer.parseInt(sdtms);
+            Integer soluongm = Integer.parseInt(soluongms);
+            Date ngaym = Date.valueOf(ngayms);
+
+
+            CustomerBorrowBooksAccessObject book2 = new CustomerBorrowBooksAccessObject();
+            qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngaym);
+            book2.create(ms);
             JOptionPane.showMessageDialog(null,"Thêm Thành Công");
             Parent root;
             root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
             Main.mainStage.setScene(new Scene(root, 1263, 944));
             Main.mainStage.show();
         }
-
-
-
     }
 
     public void suaKhachMuon(){
@@ -231,8 +239,29 @@ public class Controller implements Initializable {
 
 
 
-    public void themKhachTra(){
-
+    public void themKhachTra() throws IOException, SQLException {
+//        String mkts = txt_makt.getText();
+//        String tkts = txt_tenkt.getText();
+//        String sdtkts = txt_sdtkt.getText();
+//        String diachikts = txt_diachikt.getText();
+//        String nhapmakts = txt_nhapmakt.getText();
+//        String nhaptenkts = txt_nhaptenkt.getText();
+//        String soluongkts = txt_soluongkt.getText();
+//        String ngaykts = txt_ngaykt.getValue().toString();
+//
+//        if (!mkts.isEmpty()&&!tkts.isEmpty()&&!sdtkts.isEmpty()&&!diachikts.isEmpty()&&!nhapmakts.isEmpty()&&!nhaptenkts.isEmpty()&&!soluongkts.isEmpty()){
+//            Integer phonekt = Integer.parseInt(sdtkts);
+//            Integer soluongkt = Integer.parseInt(soluongkts);
+//
+//            CustomerBooksReturnAccessObject book3 = new CustomerBooksReturnAccessObject();
+//            qlTraSach ts =new qlTraSach(null,mkts,tkts,phonekt,diachikts,nhapmakts,nhaptenkts,soluongkt,ngaykts);
+//            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+//            book3.create(ts);
+//            Parent root;
+//            root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+//            Main.mainStage.setScene(new Scene(root, 1263, 944));
+//            Main.mainStage.show();
+//        }
     }
 
     public void suaKhachTra(){

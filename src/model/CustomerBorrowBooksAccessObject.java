@@ -45,8 +45,7 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
     public boolean create(qlMuonSach qlMuonSach) throws SQLException {
         try {
             Connecter cn = Connecter.getInstance();
-            String sql = "insert into qlMuonSach(maKh,tenKh,maS,tenS,soLuong,ngayMuon,diaChi,sdtKh)" +"value('"+qlMuonSach.getSttMS()+"','"+qlMuonSach.getIdKM()+"','"+qlMuonSach.getNameKM()+"','"+qlMuonSach.getPhoneKM()+"',"+qlMuonSach.getAdressKM()+"," +
-                    ""+qlMuonSach.getIdKM()+","+qlMuonSach.getNameKM()+","+qlMuonSach.getSoluongM()+","+qlMuonSach.getNgayM()+")";
+            String sql = "insert into qlmuonsach(maKh,tenKh,maS,tenS,soLuong,ngayMuon,diaChi,sdtKh)" +"value('"+qlMuonSach.getIdKM()+"','"+qlMuonSach.getNameKM()+"',"+qlMuonSach.getPhoneKM()+",'"+qlMuonSach.getAdressKM()+"'," + ",'"+qlMuonSach.getIdKM()+"','"+qlMuonSach.getNameKM()+"',"+qlMuonSach.getSoluongM()+","+qlMuonSach.getNgayM()+")";
             cn.getStatement().executeUpdate(sql);
             return false;
         }catch (Exception e){
