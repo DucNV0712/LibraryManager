@@ -139,7 +139,7 @@
                         <TextField fx:id="txt_makt" layoutX="28.0" layoutY="87.0" prefHeight="41.0" prefWidth="338.0" promptText="Mã Khách Hàng" />
                         <TextField fx:id="txt_sdtkt" layoutX="28.0" layoutY="231.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập SĐT" />
                         <TextField fx:id="txt_diachikt" layoutX="28.0" layoutY="303.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Địa Chỉ" />
-                        <TextField fx:id="txt_nhapmakt" layoutX="28.0" layoutY="375.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
+                        <TextField fx:id="txt_maSKT" layoutX="28.0" layoutY="375.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Mã Sách" />
                         <TextField fx:id="txt_soluongkt" layoutX="28.0" layoutY="519.0" prefHeight="41.0" prefWidth="338.0" promptText="Nhập Số Lượng" />
                      </children>
                   </AnchorPane>

@@ -85,7 +85,7 @@ public class Controller implements Initializable {
     public TextField txt_tenkt;
     public TextField txt_sdtkt;
     public TextField txt_diachikt;
-    public TextField txt_nhapmakt;
+    public TextField txt_maSKT;
     public TextField txt_nhaptenkt;
     public TextField txt_soluongkt;
     public DatePicker txt_ngaykt;
@@ -130,7 +130,7 @@ public class Controller implements Initializable {
         tb_SdtKT.setCellValueFactory(new PropertyValueFactory<>("phoneKT"));
         tb_DiaChiKT.setCellValueFactory(new PropertyValueFactory<>("adressKT"));
         tb_idBKT.setCellValueFactory(new PropertyValueFactory<>("idB"));
-        tb_idBKT.setCellValueFactory(new PropertyValueFactory<>("nameB"));
+        tb_NameBKT.setCellValueFactory(new PropertyValueFactory<>("nameB"));
         tb_SlT.setCellValueFactory(new PropertyValueFactory<>("soluongT"));
         tb_NT.setCellValueFactory(new PropertyValueFactory<>("ngayT"));
         CustomerBooksReturnAccessObject KTDAO = new CustomerBooksReturnAccessObject();
@@ -159,23 +159,26 @@ public class Controller implements Initializable {
         model.entity.qlMuonSach svm = tbViewKM.getSelectionModel().getSelectedItem();
         txt_mkhm.setText(svm.getIdKM());
         txt_tkhm.setText(svm.getNameKM());
-//        txt_sdtm.setText(svm.getPhoneKM());
+        txt_sdtm.setText(String.valueOf(svm.phoneKM));
         txt_diachim.setText(svm.getAdressKM());
         txt_masachm.setText(svm.getIdB());
         txt_tensachm.setText(svm.getNameB());
         txt_Soluong.setText(String.valueOf(svm.soluongM));
-//        txt_ngaym.getValue(svm.getNgayM());
-
 
     }
+
+
     public void ClickKHT(){
         //Lấy Dữ Liệu Người Trả
         qlTraSach ms = tbViewKT.getSelectionModel().getSelectedItem();
+        txt_maSKT.setText(ms.getIdB());
         txt_makt.setText(ms.getIdKT());
         txt_tenkt.setText(ms.getNameKT());
+        txt_sdtkt.setText(String.valueOf(ms.phoneKT));
         txt_diachikt.setText(ms.getAdressKT());
-        txt_nhapmakt.setText(ms.getIdKT());
-        txt_nhaptenkt.setText(ms.getNameKT());
+        txt_nhaptenkt.setText(ms.getNameB());
+        txt_soluongkt.setText(String.valueOf(ms.soluongT));
+
     }
 
     //Quân
@@ -257,9 +260,8 @@ public class Controller implements Initializable {
             Integer soluongm = Integer.parseInt(soluongms);
             CustomerBorrowBooksAccessObject book2 = new CustomerBorrowBooksAccessObject();
             qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngayms);
-//            book2.create(ms);
-            System.out.println(book2.create(ms));
-        JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+            book2.create(ms);
+        JOptionPane.showMessageDialog(null,"Thêm KH Thành Công");
         Parent root;
         root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
         Main.mainStage.setScene(new Scene(root, 1263, 944));
@@ -267,7 +269,28 @@ public class Controller implements Initializable {
 //        }
     }
 
-    public void suaKhachMuon(){
+    public void suaKhachMuon() throws IOException {
+        String mkhms = txt_mkhm.getText();
+        String tkhms = txt_tkhm.getText();
+        String sdtms = txt_sdtm.getText();
+        String diachims = txt_diachim.getText();
+        String masachms = txt_masachm.getText();
+        String tensachms = txt_tensachm.getText();
+        String soluongms = txt_soluongm.getText();
+        String ngayms = txt_ngaym.getValue().toString();
+//        if (!mkhms.isEmpty()&&!tkhms.isEmpty()&&!sdtms.isEmpty()&&!diachims.isEmpty()&&!masachms.
+//                isEmpty()&&!tensachms.isEmpty()&&!soluongms.isEmpty()){
+        Integer phonem = Integer.parseInt(sdtms);
+        Integer soluongm = Integer.parseInt(soluongms);
+        CustomerBorrowBooksAccessObject book2 = new CustomerBorrowBooksAccessObject();
+        qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngayms);
+        book2.update(ms);
+        JOptionPane.showMessageDialog(null,"Sửa Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
+
 
     }
     public void xoaKhachMuon() throws IOException {
@@ -294,7 +317,7 @@ public class Controller implements Initializable {
         String tkhts = txt_tenkt.getText();
         String sdtts = txt_sdtkt.getText();
         String diachits = txt_diachikt.getText();
-        String masachts = txt_nhapmakt.getText();
+        String masachts = txt_maSKT.getText();
         String tensachts = txt_nhaptenkt.getText();
         String soluongts = txt_soluongkt.getText();
         String ngayts = txt_ngaykt.getValue().toString();
@@ -314,9 +337,28 @@ public class Controller implements Initializable {
 //        }
     }
 
-
-    public void suaKhachTra(){
-
+    public void suaKhachTra() throws IOException {
+        String mkhts = txt_makt.getText();
+        String tkhts = txt_tenkt.getText();
+        String sdtts = txt_sdtkt.getText();
+        String diachits = txt_diachikt.getText();
+        String masachts = txt_maSKT.getText();
+        String tensachts = txt_nhaptenkt.getText();
+        String soluongts = txt_soluongkt.getText();
+        String ngayts = txt_ngaykt.getValue().toString();
+//        if (!mkhms.isEmpty()&&!tkhms.isEmpty()&&!sdtms.isEmpty()&&!diachims.isEmpty()&&!masachms.
+//                isEmpty()&&!tensachms.isEmpty()&&!soluongms.isEmpty()){
+        Integer phonet = Integer.parseInt(sdtts);
+        Integer soluongt = Integer.parseInt(soluongts);
+        Date ngayTS = Date.valueOf(ngayts);
+        CustomerBooksReturnAccessObject book3 = new CustomerBooksReturnAccessObject();
+        qlTraSach ts =new qlTraSach(null,mkhts,tkhts,phonet,diachits,masachts,tensachts,soluongt,ngayTS);
+        book3.update(ts);
+        JOptionPane.showMessageDialog(null,"Sửa Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
     }
 
 
@@ -338,6 +380,7 @@ public class Controller implements Initializable {
 
     public void restart(){
         //khai tao các ô xuất ở đây
+
 
     }
 

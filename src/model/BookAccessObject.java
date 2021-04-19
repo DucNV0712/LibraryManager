@@ -33,7 +33,7 @@ public class BookAccessObject implements DataAccessObject<qlSach> {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.out.println("hello");
+            System.out.println("\"Kết Nối Thất Bại\"");
         }
         return ds;
     }

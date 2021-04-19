@@ -22,7 +22,7 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
                 Integer sttTS = rs.getInt("sttT");
                 String maKHT = rs.getString("maKhT");
                 String tenKHN  = rs.getString("tenKhT");
-                Integer sdt = rs.getInt("sdthkT");
+                Integer sdt = rs.getInt("sdtkhT");
                 String diachi = rs.getString("diaChiNT");
                 String idb = rs.getString("maS");
                 String nameB = rs.getString("tenS");
@@ -42,11 +42,11 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
     public boolean create(qlTraSach qlTraSach) throws SQLException {
         try {
             Connecter cn = Connecter.getInstance();
-            String sql = "insert into  qltrasach(`maKhT`, `tenKhT`, `sdthkT`, `diaChiNT`, `maS`, `tenS`, `soLuong`, `ngayTra`)" +"value('"+qlTraSach.getIdKT()+"','"+qlTraSach.getNameKT()+"',"+qlTraSach.getPhoneKT()+",'"+qlTraSach.getAdressKT()+"','"+qlTraSach.getIdB()+"','"+qlTraSach.getNameB()+"',"+qlTraSach.getSoluongT()+",'"+qlTraSach.getNgayT()+"')";
+            String sql = "insert into  qltrasach( maKhT,tenKhT,sdtkhT,diaChiNT, maS,tenS, soLuong, ngayTra)" +"value('"+qlTraSach.getIdKT()+"','"+qlTraSach.getNameKT()+"',"+qlTraSach.getPhoneKT()+",'"+qlTraSach.getAdressKT()+"','"+qlTraSach.getIdB()+"','"+qlTraSach.getNameB()+"',"+qlTraSach.getSoluongT()+",'"+qlTraSach.getNgayT()+"')";
             cn.getStatement().executeUpdate(sql);
             return false;
         }catch (Exception e){
-            System.out.println("loi vl");
+            System.out.println("\"Kết Nối Thất Bại\"");
             return true;
         }
     }
@@ -58,13 +58,14 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
 
     @Override
     public boolean update(qlTraSach qlTraSach) {
-//        try{
-//            Connecter c = Connecter.getInstance();
-//            String sql = "update qlTraSach set  maKhT= '"+qlTraSach.getIdKT()+"',tenKhT ='"+qlTraSach.getNameKT()+"' ,sdtKhT ='"+qlTraSach.getPhoneKT()+"',diaChiNT = '"+qlTraSach.getAdressKT()+"', where maS  = '"+qlTraSach.getIdB()+"',tenS = '"+qlTraSach.getNameB()+"',soLuong = '"+qlTraSach.getSoluongT()+"',ngayTra = '"+qlTraSach.getNgayT()+"'";
-//            c.statement.execute(txt_sql);
-//            return false;
-//        } catch ( SQLException e) {
-        return true;
+        try {
+            Connecter c = Connecter.getInstance();
+            String sql = "update qlTraSach set tenKhT ='" + qlTraSach.getNameKT() + "' ,sdtKhT ='" + qlTraSach.getPhoneKT() + "',diaChiNT = '" + qlTraSach.getAdressKT() + "',tenS = '" + qlTraSach.getNameB() + "',soLuong = " + qlTraSach.getSoluongT() + ",ngayTra = '" + qlTraSach.getNgayT() + "' where maKhT= '"+ qlTraSach.getIdKT() +"'";
+            c.statement.execute(sql);
+            return false;
+        } catch (SQLException e) {
+            return true;
+        }
     }
 
 

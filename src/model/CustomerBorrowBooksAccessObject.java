@@ -36,7 +36,7 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.out.println("Lỗi Nhá");
+            System.out.println("\"Kết Nối Thất Bại\"");
         }
         return ds;
     }
@@ -51,7 +51,7 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
             return true;
 //            '"+qlms.getIdKM()+"','"+qlms.getNameKM()+"',"+qlms.getPhoneKM()+",'"+qlms.getIdB()+"','"+qlms.getNameB()+"',"+qlms.getSoluongM()+","+qlms.getNgayM()+")"
             }catch (Exception e){
-            System.out.println("Khong Nhan");
+            System.out.println("\"Kết Nối Thất Bại\"");
                  return false;
             }
 
@@ -66,11 +66,11 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
     public boolean update(qlMuonSach qlms) {
         try {
             Connecter c = Connecter.getInstance();
-            String text_sqlms = "update qlmuonsach set tenS='"+qlms.getNameB()+"',maS='"+qlms.getIdB()+"',maKh='"+qlms.getIdKM()+"',tenKh='"+qlms.getNameKM()+"',soLuong='"+qlms.getSoluongM()+"',ngayMuon='"+qlms.getNgayM()+"',diaChi='"+qlms.getAdressKM()+"',sdtKh='"+qlms.getPhoneKM()+"'";
+            String text_sqlms = "update qlmuonsach set tenS='"+qlms.getNameB()+"',maS='"+qlms.getIdB()+"',maKh='"+qlms.getIdKM()+"',tenKh='"+qlms.getNameKM()+"',soLuong="+qlms.getSoluongM()+",ngayMuon='"+qlms.getNgayM()+"',diaChi='"+qlms.getAdressKM()+"',sdtKh="+qlms.getPhoneKM()+" where maKh= '"+ qlms.getIdKM() +"'";
             c.statement.execute(text_sqlms);
             return false;
         } catch ( SQLException e) {
-            System.out.println("loi vcl");
+            System.out.println("Kết Nối Thất Bại u");
             return true;
         }
     }
@@ -83,7 +83,7 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.out.println("Lỗi");
+            System.out.println("\"Kết Nối Thất Bại\"");
           return false;
         }
     }
