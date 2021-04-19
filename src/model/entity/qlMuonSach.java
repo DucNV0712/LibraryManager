@@ -1,6 +1,5 @@
 package model.entity;
 
-import java.sql.Date;
 public class qlMuonSach {
  public Integer sttMS;
  public String idKM;
@@ -22,6 +21,9 @@ public class qlMuonSach {
   this.nameB = nameB;
   this.soluongM = soluongM;
   this.ngayM = ngayM;
+ }
+
+ public qlMuonSach(Integer sttMS, String nameKM, String idKM, String phoneKM, String adressKM, String idB, String nameB, Integer soluongM, String ngayM) {
  }
 
  public Integer getSttMS() {
@@ -48,9 +50,7 @@ public class qlMuonSach {
   this.nameKM = nameKM;
  }
 
- public Integer getPhoneKM() {
-  return phoneKM;
- }
+ public Integer getPhoneKM() { return phoneKM; }
 
  public void setPhoneKM(Integer phoneKM) {
   this.phoneKM = phoneKM;

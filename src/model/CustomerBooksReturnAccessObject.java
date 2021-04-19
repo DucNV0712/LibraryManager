@@ -58,7 +58,13 @@ public class CustomerBooksReturnAccessObject implements DataAccessObject<qlTraSa
 
     @Override
     public boolean update(qlTraSach qlTraSach) {
-        return false;
+//        try{
+//            Connecter c = Connecter.getInstance();
+//            String sql = "update qlTraSach set  maKhT= '"+qlTraSach.getIdKT()+"',tenKhT ='"+qlTraSach.getNameKT()+"' ,sdtKhT ='"+qlTraSach.getPhoneKT()+"',diaChiNT = '"+qlTraSach.getAdressKT()+"', where maS  = '"+qlTraSach.getIdB()+"',tenS = '"+qlTraSach.getNameB()+"',soLuong = '"+qlTraSach.getSoluongT()+"',ngayTra = '"+qlTraSach.getNgayT()+"'";
+//            c.statement.execute(txt_sql);
+//            return false;
+//        } catch ( SQLException e) {
+        return true;
     }
 
 

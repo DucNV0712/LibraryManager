@@ -65,5 +65,6 @@ public class qlSach extends Throwable {
     public void setAmountB(Integer amountB) {
         this.amountB = amountB;
     }
+
 }
 
