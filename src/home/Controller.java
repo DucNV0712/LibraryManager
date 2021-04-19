@@ -158,7 +158,12 @@ public class Controller implements Initializable {
     }
     public void ClickKHT(){
         //Lấy Dữ Liệu Người Trả
-
+        qlTraSach ms = tbViewKT.getSelectionModel().getSelectedItem();
+        txt_makt.setText(ms.getIdKT());
+        txt_tenkt.setText(ms.getNameKT());
+        txt_diachikt.setText(ms.getAdressKT());
+        txt_nhapmakt.setText(ms.getIdKT());
+        txt_nhaptenkt.setText(ms.getNameKT());
     }
 
     //Quân
