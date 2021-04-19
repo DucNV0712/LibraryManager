@@ -59,6 +59,7 @@ public class Controller implements Initializable {
     public TableColumn<qlTraSach,String>tb_NameKT;//tên kh
     public TableColumn<qlTraSach,String>tb_DiaChiKT;//địa chỉ kh
     public TableColumn<qlTraSach,String>tb_idBKT;//mã sách trả
+    public TableColumn<qlTraSach,String>tb_NameBKT;//ten khach sách trả\
     public TableColumn<qlTraSach,Date>tb_NT;//ngày gian trả
     //Nhập QL sách
    //ô nhâp tên sách
@@ -133,7 +134,7 @@ public class Controller implements Initializable {
         tb_SlT.setCellValueFactory(new PropertyValueFactory<>("soluongT"));
         tb_NT.setCellValueFactory(new PropertyValueFactory<>("ngayT"));
         CustomerBooksReturnAccessObject KTDAO = new CustomerBooksReturnAccessObject();
-        ObservableList<qlTraSach> dsT = KTDAO.getList();
+        ObservableList dsT = KTDAO.getList();
         tbViewKT.setItems(dsT);
         tkTS.setText(String.valueOf(dsT.size()));
 
@@ -152,8 +153,19 @@ public class Controller implements Initializable {
         txtTheloai.setText(sv.getCategory());
         txt_Soluong.setText(String.valueOf(sv.amountB));
     }
+
     public void ClickKHM(){
         //Lấy Dữ Liệu Người Mượn
+        model.entity.qlMuonSach svm = tbViewKM.getSelectionModel().getSelectedItem();
+        txt_mkhm.setText(svm.getIdKM());
+        txt_tkhm.setText(svm.getNameKM());
+//        txt_sdtm.setText(svm.getPhoneKM());
+        txt_diachim.setText(svm.getAdressKM());
+        txt_masachm.setText(svm.getIdB());
+        txt_tensachm.setText(svm.getNameB());
+        txt_Soluong.setText(String.valueOf(svm.soluongM));
+//        txt_ngaym.getValue(svm.getNgayM());
+
 
     }
     public void ClickKHT(){
@@ -225,7 +237,7 @@ public class Controller implements Initializable {
     //khai tao các ô nghập ở đây
 
 
-    public void themKhachMuon(){
+    public void themKhachMuon() throws IOException {
         String mkhms = txt_mkhm.getText();
         String tkhms = txt_tkhm.getText();
         String sdtms = txt_sdtm.getText();
@@ -242,7 +254,11 @@ public class Controller implements Initializable {
             qlMuonSach ms =new qlMuonSach(null,mkhms,tkhms,phonem,diachims,masachms,tensachms,soluongm,ngayms);
 //            book2.create(ms);
             System.out.println(book2.create(ms));
-            JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+        JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
 //        }
     }
 
@@ -268,10 +284,31 @@ public class Controller implements Initializable {
     //khai tao các ô nghập ở đây
 
 
-
-    public void themKhachTra(){
-
+    public void themKhachTra() throws SQLException, IOException {
+        String mkhts = txt_makt.getText();
+        String tkhts = txt_tenkt.getText();
+        String sdtts = txt_sdtkt.getText();
+        String diachits = txt_diachikt.getText();
+        String masachts = txt_nhapmakt.getText();
+        String tensachts = txt_nhaptenkt.getText();
+        String soluongts = txt_soluongkt.getText();
+        String ngayts = txt_ngaykt.getValue().toString();
+//        if (!mkhms.isEmpty()&&!tkhms.isEmpty()&&!sdtms.isEmpty()&&!diachims.isEmpty()&&!masachms.
+//                isEmpty()&&!tensachms.isEmpty()&&!soluongms.isEmpty()){
+        Integer phonet = Integer.parseInt(sdtts);
+        Integer soluongt = Integer.parseInt(soluongts);
+        Date ngayTS = Date.valueOf(ngayts);
+        CustomerBooksReturnAccessObject book3 = new CustomerBooksReturnAccessObject();
+        qlTraSach ts =new qlTraSach(null,mkhts,tkhts,phonet,diachits,masachts,tensachts,soluongt,ngayTS);
+            book3.create(ts);
+        JOptionPane.showMessageDialog(null,"Thêm Thành Công");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../home/LibraryManager.fxml"));
+        Main.mainStage.setScene(new Scene(root, 1263, 944));
+        Main.mainStage.show();
+//        }
     }
+
 
     public void suaKhachTra(){
 

@@ -46,7 +46,7 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
     public boolean create(qlMuonSach qlms)  {
         try {
                 Connecter cn = Connecter.getInstance();
-                String sql = "insert into qlmuonsach(maKh,tenKh,maS, tenS,soLuong,ngayMuon,diaChi,sdtKh) "+ "value('"+qlms.getIdKM()+"','"+qlms.getNameKM()+"','"+qlms.getIdB()+"','"+qlms.getNameB()+"',"+qlms.getSoluongM()+","+qlms.getNgayM()+",'"+qlms.getAdressKM()+"',"+qlms.getPhoneKM()+")";
+                String sql = "insert into qlmuonsach(maKh,tenKh,maS, tenS,soLuong,ngayMuon,diaChi,sdtKh) "+ "value('"+qlms.getIdKM()+"','"+qlms.getNameKM()+"','"+qlms.getIdB()+"','"+qlms.getNameB()+"',"+qlms.getSoluongM()+",'"+qlms.getNgayM()+"','"+qlms.getAdressKM()+"',"+qlms.getPhoneKM()+")";
                 cn.getStatement().executeUpdate(sql);
             return true;
 //            '"+qlms.getIdKM()+"','"+qlms.getNameKM()+"',"+qlms.getPhoneKM()+",'"+qlms.getIdB()+"','"+qlms.getNameB()+"',"+qlms.getSoluongM()+","+qlms.getNgayM()+")"
@@ -63,10 +63,17 @@ public class CustomerBorrowBooksAccessObject implements DataAccessObject<qlMuonS
     }
 
     @Override
-    public boolean update(qlMuonSach qlMuonSach) {
-        return false;
+    public boolean update(qlMuonSach qlms) {
+        try {
+            Connecter c = Connecter.getInstance();
+            String text_sqlms = "update qlmuonsach set tenS='"+qlms.getNameB()+"',maS='"+qlms.getIdB()+"',maKh='"+qlms.getIdKM()+"',tenKh='"+qlms.getNameKM()+"',soLuong='"+qlms.getSoluongM()+"',ngayMuon='"+qlms.getNgayM()+"',diaChi='"+qlms.getAdressKM()+"',sdtKh='"+qlms.getPhoneKM()+"'";
+            c.statement.execute(text_sqlms);
+            return false;
+        } catch ( SQLException e) {
+            System.out.println("loi vcl");
+            return true;
+        }
     }
-
     @Override
     public boolean delete(qlMuonSach qlMS) {
         try {
